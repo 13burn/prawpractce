@@ -17,5 +17,18 @@ reddit = praw.Reddit(client_id =info.client_id,
 
 print(reddit.random_subreddit())
 
+sub = reddit.subreddit("mexico")
 
+htmx = sub.hot(limit =30)
+
+for submi in htmx:
+    print(submi.author)
+    try:
+        coms = submi.comments
+        for aus in coms:
+            print(aus.author)
+    except:
+        print("no comments")
+    
+    
 
